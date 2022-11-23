@@ -6,6 +6,6 @@ resource "digitalocean_record" "main_record" {
   depends_on = [data.kubernetes_service_v1.data_svc]
   domain = digitalocean_domain.domain.id
   type = "A"
-  name = "@"
+  name = "www"
   value = data.kubernetes_service_v1.data_svc.status.0.load_balancer.0.ingress.0.ip
 }
