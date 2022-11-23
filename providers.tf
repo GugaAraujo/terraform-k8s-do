@@ -28,11 +28,11 @@ provider "kubernetes" {
   )
 
   exec {
-  api_version = "client.authentication.k8s.io/v1beta1"
-  command = "doctl"
-  args = ["kubernetes", "cluster", "kubeconfig", "exec-credential",
-  "--version=v1beta1", digitalocean_kubernetes_cluster.k8s.id]
-}
+    api_version = "client.authentication.k8s.io/v1beta1"
+    command = "doctl"
+    args = ["kubernetes", "cluster", "kubeconfig", "exec-credential",
+    "--version=v1beta1", digitalocean_kubernetes_cluster.k8s.id]
+  }
 }
 
 provider "helm" {
