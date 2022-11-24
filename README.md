@@ -5,12 +5,11 @@ provisioning a WordPress application and a MySQL database.
 
 The entire flow must be run only once.
 
+### 🚧 Project in progress
 The application can be accessed at the address
-#### [https://www.laboratoriolotus.com.br/](https://www.laboratoriolotus.com.br/)
+#### [https://application-bfqvg.ondigitalocean.app/](https://application-bfqvg.ondigitalocean.app/)
 
 > Your access token to DigitalOcean must be filled in the file **terraform.tfvars**
-
-### 🚧 Project in progress
 
 ## Setup
 
