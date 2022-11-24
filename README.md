@@ -8,12 +8,14 @@ The entire flow must be run only once.
 The application can be accessed at the address
 #### [https://www.laboratoriolotus.com.br/](https://www.laboratoriolotus.com.br/)
 
+> Your access token to DigitalOcean must be filled in the file **terraform.tfvars**
+
 ### 🚧 Project in progress
 
 ## Setup
 
 ```bash
-# install modules and backend
+# init terraform
 $ terraform init
 
 # create a plan for changes
@@ -22,10 +24,7 @@ $ terraform plan
 # apply changes
 $ terraform apply
 
-# apply changes
-$ terraform apply "do_token=<YOUR_TOKEN_HERE>"
-
-# apply changes without confirmation
-$ terraform apply --auto-approve -var "do_token=<YOUR_TOKEN_HERE>"
+# remove infra
+$ terraform destroy
 ```
 

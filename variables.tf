@@ -1,7 +1,27 @@
+variable "do_token" {}
+
 variable "domain_name" {
   type = string
   description = "Name of the domain"
   default = "laboratoriolotus.com.br"
+}
+
+variable "app_name" {
+  type = string
+  description = "Name of the application"
+  default = "application"
+}
+
+variable "app_size" {
+  type = string
+  description = "size of the application"
+  default = "basic-xxs"
+}
+
+variable "app_version_tag" {
+  type = string
+  description = "Tag of the application"
+  default = "php8.1-apache"
 }
 
 variable "data_svc_name" {
@@ -37,7 +57,7 @@ variable "k8s_tag" {
 variable "node_total" {
   type = number
   description = "Number of Nodes in the application"
-  default = 1
+  default = 3
 }
 
 variable "node_size" {
@@ -51,9 +71,6 @@ variable "node_pool_tag" {
   description = "Pool tag"
   default = ["node-pool"]
 }
-
-
-variable "do_token" {}
 
 variable "project_region" {
   type        = string

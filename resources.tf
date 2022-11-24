@@ -30,23 +30,31 @@ resource "helm_release" "cert-manager" {
   }
 }
 
-data "kubernetes_service_v1" "data_svc" {
-  depends_on = [helm_release.nginx_ingress]
+resource "digitalocean_app" "this" {
+  spec {
+    domain {
+      name = var.domain_name
+    }
+    name   = var.app_name
+    region = var.project_region
 
-  metadata {
-    name = var.data_svc_name
+    service {
+      name               = var.app_name
+      http_port          = 80
+      instance_count     = 1
+      instance_size_slug = var.app_size
+      internal_ports     = []
+      source_dir         = "/"
+
+      image {
+        registry_type = "DOCKER_HUB"
+        repository    = "wordpress"
+        tag           = var.app_version_tag
+      }
+    }
   }
 }
 
-resource "helm_release" "nginx_ingress" {
-  depends_on = [digitalocean_kubernetes_cluster.k8s]
-
-  name = "nginx-ingress"
-  repository = "https://kubernetes.github.io/ingress-nginx"
-  chart = "ingress-nginx"
-
-  set {
-    name = "controller.publishService.enabled"
-    value = true
-  }
+data "digitalocean_app" "this-data" {
+  app_id = digitalocean_app.this.id
 }

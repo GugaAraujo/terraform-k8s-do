@@ -2,10 +2,9 @@ resource "digitalocean_domain" "domain" {
   name = var.domain_name
 }
 
-resource "digitalocean_record" "main_record" {
-  depends_on = [data.kubernetes_service_v1.data_svc]
+resource "digitalocean_record" "CNAME" {
   domain = digitalocean_domain.domain.id
-  type = "A"
-  name = "www"
-  value = data.kubernetes_service_v1.data_svc.status.0.load_balancer.0.ingress.0.ip
+  type   = "CNAME"
+  name   = "www"
+  value  = "@"
 }

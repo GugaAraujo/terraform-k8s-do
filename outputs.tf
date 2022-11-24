@@ -4,11 +4,11 @@ output "kube-config" {
 }
 
 output "domain" {
-  value = digitalocean_record.main_record.fqdn
+  value = digitalocean_record.CNAME.fqdn
 }
 
 output "public-ip" {
-  value = digitalocean_record.main_record.value
+  value = digitalocean_record.CNAME.value
 }
 
 output "load-balancer" {
@@ -37,4 +37,12 @@ output "digitalocean_vpc" {
   value = [digitalocean_vpc.vpc_com.ip_range,
     digitalocean_vpc.vpc_com.description
   ]
+}
+
+output "app-url" {
+  value = digitalocean_app.this.live_url
+}
+
+output "app-url-default" {
+  value = digitalocean_app.this.default_ingress
 }
