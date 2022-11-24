@@ -9,7 +9,7 @@ The entire flow must be run only once.
 The application can be accessed at the address
 #### [https://application-bfqvg.ondigitalocean.app/](https://application-bfqvg.ondigitalocean.app/)
 
-> Your access token to DigitalOcean must be filled in the file **terraform.tfvars**
+> Your access token to Digital Ocean must be filled in the file **terraform.tfvars**
 
 ## Setup
 
